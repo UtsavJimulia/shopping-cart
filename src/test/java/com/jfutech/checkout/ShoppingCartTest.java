@@ -49,4 +49,9 @@ public class ShoppingCartTest {
                 () -> shoppingCart.calculatePrice(null));
     }
 
+    @Test
+    void shouldApplyBogoOfferForApples() {
+        assertEquals("£0.60", shoppingCart.calculatePrice(List.of("Apple", "Apple")));
+    }
+
 }
