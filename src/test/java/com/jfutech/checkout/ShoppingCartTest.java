@@ -54,4 +54,10 @@ public class ShoppingCartTest {
         assertEquals("£0.60", shoppingCart.calculatePrice(List.of("Apple", "Apple")));
     }
 
+    @Test
+    void shouldApply3For2OfferForOranges() {
+        assertEquals("£0.50", shoppingCart.calculatePrice(
+                List.of("Orange", "Orange", "Orange")));
+    }
+
 }
