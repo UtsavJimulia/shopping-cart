@@ -5,6 +5,17 @@ import java.util.List;
 public class ShoppingCart {
 
     public String calculatePrice(List<String> items) {
-        return "£0.00";
+        int totalPence = items.stream()
+                .mapToInt(this::getPrice)
+                .sum();
+        return String.format("£%.2f", totalPence / 100.0);
+    }
+
+    private int getPrice(String item) {
+        return switch (item) {
+            case "Apple" -> 60;
+            case "Orange" -> 25;
+            default -> 0;
+        };
     }
 }
