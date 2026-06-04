@@ -33,7 +33,7 @@ public class ShoppingCartTest {
 
     @Test
     void shouldCalculateMultipleItems() {
-        assertEquals("£2.05", shoppingCart.calculatePrice(
+        assertEquals("£1.45", shoppingCart.calculatePrice(
                 List.of("Apple", "Apple", "Orange", "Apple")));
     }
 

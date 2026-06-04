@@ -8,9 +8,13 @@ public class ShoppingCart {
         if (items == null) {
             throw new IllegalArgumentException("Cart cannot be null");
         }
-        int totalPence = items.stream()
-                .mapToInt(this::getPrice)
-                .sum();
+        validateItems(items);
+        long appleCount = items.stream().filter("Apple"::equals).count();
+        long orangeCount = items.stream().filter("Orange"::equals).count();
+
+        int appleOfferPrice = (int) (appleCount + 1) / 2;
+        int totalPence = appleOfferPrice * getPrice("Apple")
+                + (int) orangeCount * getPrice("Orange");
         return formatPrice(totalPence);
     }
 
@@ -24,5 +28,13 @@ public class ShoppingCart {
             case "Orange" -> 25;
             default -> throw new IllegalArgumentException("Unknown item: " + item);
         };
+    }
+
+    private void validateItems(List<String> items) {
+        items.forEach(item -> {
+            if (!item.equals("Apple") && !item.equals("Orange")) {
+                throw new IllegalArgumentException("Unknown item: " + item);
+            }
+        });
     }
 }
