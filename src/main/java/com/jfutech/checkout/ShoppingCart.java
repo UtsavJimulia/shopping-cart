@@ -13,8 +13,10 @@ public class ShoppingCart {
         long orangeCount = items.stream().filter("Orange"::equals).count();
 
         int appleOfferPrice = (int) (appleCount + 1) / 2;
+        int orangeOfferPrice = (int) (orangeCount - (orangeCount / 3));
+
         int totalPence = appleOfferPrice * getPrice("Apple")
-                + (int) orangeCount * getPrice("Orange");
+                + orangeOfferPrice * getPrice("Orange");
         return formatPrice(totalPence);
     }
 
