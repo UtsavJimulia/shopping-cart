@@ -19,4 +19,14 @@ public class ShoppingCartTest {
     void shouldReturnZeroForEmptyCart() {
         assertEquals("£0.00", shoppingCart.calculatePrice(List.of()));
     }
+
+    @Test
+    void shouldReturn60pForSingleApple() {
+        assertEquals("£0.60", shoppingCart.calculatePrice(List.of("Apple")));
+    }
+
+    @Test
+    void shouldReturn25pForSingleOrange() {
+        assertEquals("£0.25", shoppingCart.calculatePrice(List.of("Orange")));
+    }
 }
