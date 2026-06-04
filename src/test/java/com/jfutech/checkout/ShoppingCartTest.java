@@ -29,4 +29,10 @@ public class ShoppingCartTest {
     void shouldReturn25pForSingleOrange() {
         assertEquals("£0.25", shoppingCart.calculatePrice(List.of("Orange")));
     }
+
+    @Test
+    void shouldCalculateMultipleItems() {
+        assertEquals("£2.05", shoppingCart.calculatePrice(
+                List.of("Apple", "Apple", "Orange", "Apple")));
+    }
 }
