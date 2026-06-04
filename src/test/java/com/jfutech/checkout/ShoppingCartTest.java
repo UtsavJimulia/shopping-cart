@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ShoppingCartTest {
     private ShoppingCart shoppingCart;
@@ -35,4 +36,11 @@ public class ShoppingCartTest {
         assertEquals("£2.05", shoppingCart.calculatePrice(
                 List.of("Apple", "Apple", "Orange", "Apple")));
     }
+
+    @Test
+    void shouldThrowExceptionForUnknownItem() {
+        assertThrows(IllegalArgumentException.class,
+                () -> shoppingCart.calculatePrice(List.of("Banana")));
+    }
+
 }
