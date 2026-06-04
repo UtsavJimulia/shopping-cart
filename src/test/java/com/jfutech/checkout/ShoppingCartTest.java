@@ -43,4 +43,10 @@ public class ShoppingCartTest {
                 () -> shoppingCart.calculatePrice(List.of("Banana")));
     }
 
+    @Test
+    void shouldThrowExceptionForNullCart() {
+        assertThrows(IllegalArgumentException.class,
+                () -> shoppingCart.calculatePrice(null));
+    }
+
 }

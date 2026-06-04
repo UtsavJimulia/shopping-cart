@@ -5,6 +5,9 @@ import java.util.List;
 public class ShoppingCart {
 
     public String calculatePrice(List<String> items) {
+        if (items == null) {
+            throw new IllegalArgumentException("Cart cannot be null");
+        }
         int totalPence = items.stream()
                 .mapToInt(this::getPrice)
                 .sum();
