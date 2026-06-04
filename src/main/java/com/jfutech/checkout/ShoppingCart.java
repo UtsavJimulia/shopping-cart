@@ -15,7 +15,7 @@ public class ShoppingCart {
         return switch (item) {
             case "Apple" -> 60;
             case "Orange" -> 25;
-            default -> 0;
+            default -> throw new IllegalArgumentException("Unknown item: " + item);
         };
     }
 }
