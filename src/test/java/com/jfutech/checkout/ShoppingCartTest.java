@@ -60,4 +60,9 @@ public class ShoppingCartTest {
                 List.of("Orange", "Orange", "Orange")));
     }
 
+    @Test
+    void shouldApplyAppleAndOrangeOffersForMultipleItems() {
+        assertEquals("£1.95", shoppingCart.calculatePrice(
+                List.of("Apple", "Apple", "Orange", "Apple", "Orange", "Orange", "Orange")));
+    }
 }
