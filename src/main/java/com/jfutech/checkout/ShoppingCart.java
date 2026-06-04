@@ -11,7 +11,11 @@ public class ShoppingCart {
         int totalPence = items.stream()
                 .mapToInt(this::getPrice)
                 .sum();
-        return String.format("£%.2f", totalPence / 100.0);
+        return formatPrice(totalPence);
+    }
+
+    private String formatPrice(int pence) {
+        return String.format("£%.2f", pence / 100.0);
     }
 
     private int getPrice(String item) {
